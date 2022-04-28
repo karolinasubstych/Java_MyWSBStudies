@@ -22,12 +22,8 @@ public class Main {
 
         // __________________________________3+4
         System.out.println();
-
         human.getSalary();
-
-
-        // __________________________________5
-        System.out.println();
-
+        human.setSalary(3500d);
+        System.out.println("Pańska wypłata wynosi teraz: " + human.getSalary());
     }
 }
