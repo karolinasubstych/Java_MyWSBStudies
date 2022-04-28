@@ -72,5 +72,31 @@ public class Main {
 
         device.toString();
         device.turnOn();
+
+        // __________________________________7
+        System.out.println();
+        Human buyer = new Human();
+        Human seller = new Human();
+        buyer.pet.species = "Koń";
+        buyer.salary = 200d;
+        seller.salary = 0d;
+        double price = 200;
+        boolean sellResult = human.pet.sellable.Sell(seller, buyer, price);
+        if(sellResult)
+            System.out.println("Sprzedano " + seller.pet.species + " za " + price);
+        else
+            System.out.println("Nie sprzedano " + seller.pet.species + " za " + price);
+
+        buyer.pet.species = "Human";
+        buyer.salary = 200d;
+        seller.salary = 0d;
+        sellResult = human.pet.sellable.Sell(seller, buyer, price);
+        if(sellResult)
+            System.out.println("Sprzedano " + seller.pet.species + " za " + price);
+        else
+            System.out.println("Nie sprzedano " + seller.pet.species + " za " + price);
+
+
+
     }
 }
