@@ -1,5 +1,6 @@
 package com.company;
 
+import creatures.Animal;
 import devices.Car;
 import devices.Device;
 import devices.Phone;
@@ -8,6 +9,12 @@ public class Main {
     public static void main(String[] args) {
         // __________________________________1
         Human human = new Human();
+        human.pet = new Animal() {
+            @Override
+            public void feed(double foodWeight) {
+
+            }
+        };
         human.pet.setWeight(500d);
         System.out.println(human.pet.getWeight());
         human.pet.takeForAWalk();
@@ -77,7 +84,20 @@ public class Main {
         System.out.println();
         Human buyer = new Human();
         Human seller = new Human();
+        buyer.pet = new Animal() {
+            @Override
+            public void feed(double foodWeight) {
+
+            }
+        };
+        seller.pet = new Animal() {
+            @Override
+            public void feed(double foodWeight) {
+
+            }
+        };
         buyer.pet.species = "Koń";
+        seller.pet.species = "Koń";
         buyer.salary = 200d;
         seller.salary = 0d;
         double price = 200;
