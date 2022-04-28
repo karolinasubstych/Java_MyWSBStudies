@@ -4,7 +4,8 @@ public class Car {
     protected String Model;
     final String Marka;
     final String Producer;
-    protected String Molor;
+    protected String Color;
+    protected Double Value;
 
     public Car(String marka, String producer) {
         Marka = marka;

@@ -17,13 +17,20 @@ public class Main {
 
         // __________________________________2
         Car car = new Car("marka", "producer");
-        human.car = car;
-        System.out.println(human.car.Marka + ' ' + human.car.Producer);
+        human.setCar(car);
+        System.out.println(human.getCar().Marka + ' ' + human.getCar().Producer);
 
         // __________________________________3+4
         System.out.println();
         human.getSalary();
         human.setSalary(3500d);
         System.out.println("Pańska wypłata wynosi teraz: " + human.getSalary());
+
+
+        // __________________________________5
+        System.out.println();
+
+        human.setValueOfTheCar(5000d);
+        human.getValueOfTheCar();
     }
 }
