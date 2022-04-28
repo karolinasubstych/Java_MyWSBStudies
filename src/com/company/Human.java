@@ -1,5 +1,7 @@
 package com.company;
 
+import devices.Car;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -10,6 +12,10 @@ public class Human {
 
     public Car getCar() {
         return car;
+    }
+
+    public String getCarToString() {
+        return car.toString();
     }
 
     public void setCar(Car car) {
