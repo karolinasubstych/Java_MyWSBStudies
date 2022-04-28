@@ -20,6 +20,14 @@ public class Main {
         human.car = car;
         System.out.println(human.car.Marka + ' ' + human.car.Producer);
 
+        // __________________________________3+4
+        System.out.println();
+
+        human.getSalary();
+
+
+        // __________________________________5
+        System.out.println();
 
     }
 }
