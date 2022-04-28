@@ -1,6 +1,8 @@
 package com.company;
 
 import devices.Car;
+import devices.Device;
+import devices.Phone;
 
 public class Main {
     public static void main(String[] args) {
@@ -51,6 +53,24 @@ public class Main {
         System.out.println("car.toString() " + car.toString());
         System.out.println("human.getCarToString() " + human.getCarToString());
 
+        // __________________________________6
+        System.out.println();
+        Phone phone = new Phone();
+        phone.turnOn();
 
+        Device device = new Device() {
+            @Override
+            public String toString() {
+                return super.toString();
+            }
+
+            @Override
+            public void turnOn() {
+                System.out.println("Urządzenie ma metodę włącz");
+            }
+        };
+
+        device.toString();
+        device.turnOn();
     }
 }
