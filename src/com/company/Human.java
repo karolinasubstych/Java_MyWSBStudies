@@ -1,62 +1,66 @@
 package com.company;
 
 import creatures.Animal;
-import creatures.Pet;
 import devices.Car;
-
+import devices.LPG;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Human {
     public Animal pet;
-    private Car car;
+    public Car[] car;
     protected Double salary;
-    protected Double valueOfTheCar;
+    protected int valueOfTheCar;
     public int cash;
     public String name;
+    public boolean hasSpaceInGarage;
+
+    public Human(Car[] car) {
+        this.car = car;
+    }
 
     public Animal getPet() {
         return pet;
     }
 
-    public Car getCar() {
-        return car;
+    public Car getCar(int positionInGarage) {
+        return car[positionInGarage];
     }
 
     public String getCarToString() {
         return car.toString();
     }
 
-    public void setCar(Car car) {
-        this.car = car;
+    public void setCar(Car car, int positionInGarage) {
+        this.car[positionInGarage] = car;
     }
 
-    public Double getValueOfTheCar() {
+    public int getValueOfTheCar() {
         return valueOfTheCar;
     }
 
-    public void setValueOfTheCar(Double valueOfTheCar) {
+    public double getValueOfTheGarage() {
+        double value=0;
+        for(int i=0;i<car.length;i++){
+            value = value + car[i].value;
+        };
+        return value;
+    }
+
+    public void setValueOfTheCar(int valueOfTheCar) {
         if(valueOfTheCar < this.salary)
         {
             System.out.println("Udało się kupić auto za gotówkę!");
-            car = new Car("Skoda", "VW") {
-                @Override
-                protected void refuel() {
-                    System.out.println("Paliwko ++");
-                }
-            };
-            car.Value = valueOfTheCar;
+            car[0] = new LPG("Skoda", "Fabia");
+            car[0].marka = "Ferrari";
+            car[0].value = valueOfTheCar;
         }
         else if(valueOfTheCar / 12 < this.salary)
         {
             System.out.println("Udało się kupić auto na kredyt!");
-            car = new Car("Skoda", "VW") {
-                @Override
-                protected void refuel() {
-                    System.out.println("Paliwko ++");
-                }
-            };
-            car.Value = valueOfTheCar;
+            car[0] = new LPG("Skoda", "Fabia");
+            car[0].marka = "Skoda";
+            car[0].value = valueOfTheCar;
         }
         else
         {

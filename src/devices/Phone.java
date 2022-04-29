@@ -1,7 +1,6 @@
 package devices;
 
 import java.net.URI;
-import java.security.URIParameter;
 
 public class Phone extends Device {
     static String uribase = "https://www.applications.server/v1.0";

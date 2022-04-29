@@ -3,22 +3,22 @@ package devices;
 import java.util.Date;
 
 public abstract class Device {
-    public String Model;
-    public String Marka;
-    final String Producer;
-    public Date Date;
+    public String model;
+    public String marka;
+    final String producer;
+    public Date date;
 
     protected Device() {
-        Producer = "Producent";
+        this.producer = "Producent";
     }
 
     @Override
     public String toString() {
         return "Device{" +
-                "Model='" + Model + '\'' +
-                ", Marka='" + Marka + '\'' +
-                ", Producent='" + Producer + '\'' +
-                ", Data=" + Date +
+                "Model='" + this.model + '\'' +
+                ", Marka='" + this.marka + '\'' +
+                ", Producent='" + this.producer + '\'' +
+                ", Data=" + this.date +
                 '}';
     }
 
