@@ -2,6 +2,7 @@ package com.company;
 
 import creatures.Animal;
 import devices.*;
+import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
@@ -204,6 +205,90 @@ public class Main {
         System.out.println("Wartość aut w garażu to " + human.getValueOfTheGarage());
 
         // Wyrzuci wyjątek, ale działa, jak wartości się przypisze
-        car.Sell(human, human, 150d);
+        // car.Sell(human, human, 150d);
+
+        // __________________________________12
+        System.out.println();
+
+        Car carForTask12 = new Car("Lamborgini", "Lamborgini") {
+            @Override
+            public boolean Sell(Human seller, Human buyer, Double price) {
+                String wantsCar = "Lamborgini";
+                String currentSeller = "Karolina";
+                Boolean hasCar = false;
+                int carPosition = 0;
+                for(int i=0;i<seller.car.length;i++){
+                    if (buyer.car[i].marka == wantsCar) {
+                        hasCar = true;
+                        carPosition = i;
+                        break;
+                    }
+                }
+
+                if (buyer.car[carPosition].actualOwner != currentSeller) {
+                    System.out.println("Przepraszamy, sprzedający nie ma przecież tego auta!");
+
+                    return false;
+                }
+
+                if(!hasCar)
+                {
+                    try {
+                        throw new Exception();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    return false;
+                }
+
+
+                if(!buyer.hasSpaceInGarage)
+                {
+                    try {
+                        throw new Exception();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    return false;
+                }
+
+                if(buyer.salary < price)
+                {
+                    try {
+                        throw new Exception();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    return false;
+                }
+
+                buyer.car[carPosition] = seller.car[carPosition];
+                buyer.salary = buyer.salary - price;
+                seller.car[carPosition] = null;
+                seller.salary = seller.salary + price;
+
+                System.out.println("Sukces kupna/sprzedaży auta!");
+                return true;
+            }
+
+            @Override
+            public void refuel() {
+                System.out.println("Paliwko ++");
+            }
+        };
+
+        ArrayList<String> ownerLisst = new ArrayList<String>() {
+            {
+                add("Karolina");
+                add("Substych");
+                add("Java");
+            }
+        };
+
+        carForTask12.ownerList = ownerLisst;
+
+        System.out.println("Czy miał właścicieli? " + carForTask12.checkForOwners());
+        System.out.println("Czy A sprzedał dla B? " + carForTask12.checkIfASoldB(human, human));
+        System.out.println("Ilu miał właścicieli? " + carForTask12.getNumberOfSells());
     }
 }
