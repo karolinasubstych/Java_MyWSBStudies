@@ -39,13 +39,23 @@ public class Human {
         if(valueOfTheCar < this.salary)
         {
             System.out.println("Udało się kupić auto za gotówkę!");
-            car = new Car("Skoda", "VW");
+            car = new Car("Skoda", "VW") {
+                @Override
+                protected void refuel() {
+                    System.out.println("Paliwko ++");
+                }
+            };
             car.Value = valueOfTheCar;
         }
         else if(valueOfTheCar / 12 < this.salary)
         {
             System.out.println("Udało się kupić auto na kredyt!");
-            car = new Car("Skoda", "VW");
+            car = new Car("Skoda", "VW") {
+                @Override
+                protected void refuel() {
+                    System.out.println("Paliwko ++");
+                }
+            };
             car.Value = valueOfTheCar;
         }
         else

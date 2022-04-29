@@ -1,6 +1,6 @@
 package devices;
 
-public class Car extends Device {
+public abstract class Car extends Device {
     protected String Model;
     final String Producer;
     protected String Color;
@@ -30,4 +30,6 @@ public class Car extends Device {
     public void turnOn() {
         System.out.println("Auto ma metodę włącz");
     }
+
+    protected abstract void refuel();
 }
